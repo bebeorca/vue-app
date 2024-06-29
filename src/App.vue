@@ -14,7 +14,7 @@
                 </th>
             </tr>
         </thead>
-        <tbody>
+        <tbody v-if="this.products.length > 0">
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" v-for="(product, index) in this.products" :key="index">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {{ product.title }}
@@ -26,6 +26,13 @@
                     ${{ product.price }}
                 </td>
             </tr>
+        </tbody>
+        <tbody v-else>
+          <tr>
+            <td colspan="3">
+              <h1 class="m-2 text-2xl font-bold text-black">Loading...</h1>
+            </td>
+          </tr>
         </tbody>
     </table>
   </div>
