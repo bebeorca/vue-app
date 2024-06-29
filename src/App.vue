@@ -1,20 +1,57 @@
 <template>
-  <div>
-    <RouterLink/>
+  <div class="relative overflow-x-auto m-8 rounded-md shadow-md">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Title
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Category
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Price
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" v-for="(product, index) in this.products" :key="index">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{ product.title }}
+                </th>
+                <td class="px-6 py-4">
+                    {{ product.category }}
+                </td>
+                <td class="px-6 py-4">
+                    ${{ product.price }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
   </div>
-  <div class=" h-screen flex justify-center items-center">
-    <div class="w-40 h-40 bg-blue-950 rounded-md shadow-lg flex justify-center items-center text-white">
-      <h1 class="font-bold text-2xl">Halo</h1>
-    </div>
-  </div>
+
 </template>
 
-<script setup>
-import { RouterLink } from 'vue-router';
+<script>
+import axios from 'axios'
 
+export default {
+  name: 'products',
+  data(){
+    return {
+      products: []
+    }
+  },
+  mounted(){
+    this.getProducts();
+  },
+  methods: {
+    getProducts(){
+      axios.get('https://dummyjson.com/products').then(res =>{
+        this.products = res.data.products;
+      })
+    }
+  }
+}
 
 </script>
-
-<style lang="scss" scoped>
-
-</style>
