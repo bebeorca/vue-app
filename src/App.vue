@@ -36,6 +36,9 @@
         </tbody>
     </table>
   </div>
+  <div class="flex justify-center my-5">
+    <h1 class="">{{ this.halo }}</h1>
+  </div>
 
 </template>
 
@@ -46,16 +49,24 @@ export default {
   name: 'products',
   data(){
     return {
-      products: []
+      products: [],
+      halo: ""
     }
   },
   mounted(){
     this.getProducts();
+    this.tes();
   },
   methods: {
     getProducts(){
       axios.get('https://dummyjson.com/products').then(res =>{
         this.products = res.data.products;
+      })
+    },
+    tes(){
+      axios.get('https://golang-production-1f86.up.railway.app/json').then( res =>{
+        this.halo = res.data.message
+        console.log(res.data.message)
       })
     }
   }
