@@ -4,26 +4,32 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    Title
+                    Name
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Category
+                    Address
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Price
+                    Email
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Phone
                 </th>
             </tr>
         </thead>
-        <tbody v-if="this.products.length > 0">
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" v-for="(product, index) in this.products" :key="index">
+        <tbody v-if="this.halo.length > 0">
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" v-for="(user, index) in this.halo" :key="index">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{ product.title }}
+                    {{ user.nama }}
                 </th>
                 <td class="px-6 py-4">
-                    {{ product.category }}
+                    {{ user.address }}
                 </td>
                 <td class="px-6 py-4">
-                    ${{ product.price }}
+                    {{ user.email }}
+                </td>
+                <td class="px-6 py-4">
+                    +{{ user.phone }}
                 </td>
             </tr>
         </tbody>
@@ -36,9 +42,6 @@
         </tbody>
     </table>
   </div>
-  <div class="flex justify-center my-5">
-    <h1 class="">{{ this.halo }}</h1>
-  </div>
 
 </template>
 
@@ -46,27 +49,20 @@
 import axios from 'axios'
 
 export default {
-  name: 'products',
+  name: 'Beranda',
   data(){
     return {
-      products: [],
       halo: []
     }
   },
   mounted(){
-    this.getProducts();
     this.getUsers();
   },
   methods: {
-    getProducts(){
-      axios.get('https://dummyjson.com/products').then(res =>{
-        this.products = res.data.products;
-      })
-    },
     getUsers(){
       axios.get('https://go-api4-production.up.railway.app/').then( res =>{
-        this.halo = res.data
-        console.log(res.data)
+        this.halo = res.data.data
+        console.log(res.data.data)
       })
     }
   }
