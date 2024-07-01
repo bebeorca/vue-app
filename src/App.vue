@@ -64,7 +64,7 @@ export default {
       })
     },
     tes(){
-      axios.get('https://go-api4-production.up.railway.app/').then( res =>{
+      axios.get('https://go-api4-production.up.railway.app/api/').then( res =>{
         this.halo = res.data.msg
         // console.log(res)
       })
