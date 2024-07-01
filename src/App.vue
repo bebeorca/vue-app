@@ -50,12 +50,12 @@ export default {
   data(){
     return {
       products: [],
-      halo: ""
+      halo: []
     }
   },
   mounted(){
     this.getProducts();
-    this.tes();
+    this.getUsers();
   },
   methods: {
     getProducts(){
@@ -63,10 +63,10 @@ export default {
         this.products = res.data.products;
       })
     },
-    tes(){
-      axios.get('https://go-api4-production.up.railway.app/api/').then( res =>{
+    getUsers(){
+      axios.get('https://go-api4-production.up.railway.app/').then( res =>{
         this.halo = res.data
-        // console.log(res)
+        console.log(res.data)
       })
     }
   }
