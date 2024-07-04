@@ -95,7 +95,6 @@ export default {
       })
     },
     getImageUrl(imagePath) {
-      // Replace with your actual backend API URL and image path
       return `https://go-api4-production.up.railway.app/images/${imagePath}`;
     }
   }

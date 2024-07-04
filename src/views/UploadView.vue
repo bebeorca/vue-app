@@ -9,7 +9,6 @@
   </template>
 
 <script>
-import { data } from 'autoprefixer';
 import axios from 'axios';
 export default {
   methods: {
