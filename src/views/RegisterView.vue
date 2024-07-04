@@ -55,9 +55,9 @@ import axios from 'axios';
                             email: '',
                             phone: '',
                         };
-                        this.$router.push({ path: '/' }).then(() => {
-                            window.location.reload();
-                        });
+                        // this.$router.push({ path: '/' }).then(() => {
+                        //     window.location.reload();
+                        // });
                     })
                 }
             },
