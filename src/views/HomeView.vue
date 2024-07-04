@@ -95,7 +95,7 @@ export default {
       })
     },
     getImageUrl(imagePath) {
-      return `https://go-api4-production.up.railway.app/images/${imagePath}`;
+      return `https://go-api4-production.up.railway.app/uploads/${imagePath}`;
     }
   }
 }
