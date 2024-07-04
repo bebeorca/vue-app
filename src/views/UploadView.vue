@@ -27,9 +27,9 @@ export default {
             axios.post('https://go-api4-production.up.railway.app/upload', formData)
               .then(response => {
                 console.log(response.data);
-                // this.$router.push({ path: '/' }).then(() => {
-                //   window.location.reload();
-                // });
+                this.$router.push({ path: '/' }).then(() => {
+                  window.location.reload();
+                });
               })
               .catch(error => {
                 console.error('Error uploading image:', error);
