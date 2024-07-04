@@ -2,11 +2,18 @@
 export default {
   content: [
     './index.html',
-    './src/**/*.{vue,js,ts,jsx,tsx}'
+    './src/**/*.{vue,js,ts,jsx,tsx}',
+    "./node_modules/flowbite/**/*.{vue,js}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        Raleway: 'Raleway'
+      }
+    },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ],
 }
 
