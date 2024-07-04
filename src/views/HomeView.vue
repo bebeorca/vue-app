@@ -88,7 +88,7 @@ export default {
   },
   methods: {
     getUsers(){
-      axios.get('http://127.0.0.1:3000/').then( res =>{
+      axios.get('https://go-api4-production.up.railway.app/').then( res =>{
         this.newPost = res.data.image
         this.users = res.data.data
         console.log(res.data.data)
@@ -96,7 +96,7 @@ export default {
     },
     getImageUrl(imagePath) {
       // Replace with your actual backend API URL and image path
-      return `http://127.0.0.1:3000/images/${imagePath}`;
+      return `https://go-api4-production.up.railway.app/images/${imagePath}`;
     }
   }
 }
