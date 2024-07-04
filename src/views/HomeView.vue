@@ -1,8 +1,8 @@
 <template>
   <div id="default-carousel" class="relative w-full mt-8 border-b border-b-black py-2" data-carousel="slide">
     <!-- Carousel wrapper -->
-    <div class="relative h-56 overflow-hidden md:h-96 flex" v-for="(post, index) in this.newPost" :key="index">
-        <div class="duration-700 ease-in-out" data-carousel-item >
+    <div class="relative h-56 overflow-hidden md:h-96 flex">
+        <div class="duration-700 ease-in-out" data-carousel-item v-for="(post, index) in this.newPost" :key="index">
             <img :src="getImageUrl(post.file_path)" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Image">
         </div>
     </div>
